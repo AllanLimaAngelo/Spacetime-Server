@@ -11,7 +11,7 @@ export async function uploadRoutes(app: FastifyInstance) {
   app.post('/upload', async (request, reply) => {
     const upload = await request.file({
       limits: {
-        fileSize: 5 * 1024 * 1024, // 5 MB
+        fileSize: 5_242_880, // 5mb
       },
     })
 

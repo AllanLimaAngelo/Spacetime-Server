@@ -1,7 +1,6 @@
 import { FastifyInstance } from 'fastify'
-import { z } from 'zod'
 import axios from 'axios'
-
+import { z } from 'zod'
 import { prisma } from '../lib/prisma'
 
 export async function authRoutes(app: FastifyInstance) {
@@ -39,7 +38,7 @@ export async function authRoutes(app: FastifyInstance) {
       id: z.number(),
       login: z.string(),
       name: z.string(),
-      avatar_url: z.string(),
+      avatar_url: z.string().url(),
     })
 
     const userInfo = userSchema.parse(userResponse.data)
